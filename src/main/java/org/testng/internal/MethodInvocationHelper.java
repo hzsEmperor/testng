@@ -327,7 +327,7 @@ public class MethodInvocationHelper {
         testResult.setStatus(ITestResult.FAILURE);
       }
     } catch (Exception ex) {
-      if (notTimedout) {
+      if (notTimedout && !(e instanceof InterruptedException)) {
         Throwable e = ex.getCause();
         if (e instanceof TestNGRuntimeException) {
           e = e.getCause();
